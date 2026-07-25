@@ -1,8 +1,8 @@
-import heroImg from './assets/hero.png';
-import potoImg from './assets/poto.jpg';
+import patternImg from './assets/pattern.png';
+import statistikImg from './assets/statistik.png';
 import logoImg from './assets/logo.png';
-import { Info } from 'lucide-react';
-import { Copyright } from 'lucide-react';
+import { Info, Copyright } from 'lucide-react';
+
 
 function App() {
   return (
@@ -10,26 +10,25 @@ function App() {
     <div className=" min-h-screen flex flex-col sm:flex-row gap-8">
       
       <div className="w-full sm:w-1/2 bg-white flex flex-col p-8">
-        <div className="relative h-full bg-blue-100 rounded-lg overflow-hidden flex-1">
-          <div
-            className="absolute inset-0 bg-center bg-repeat"
+        <div className="relative h-full bg-[#3182CE] rounded-lg overflow-hidden ">
+          <div className="absolute inset-0 bg-center bg-repeat opacity-10"
             style={{
-              backgroundImage: `url(${heroImg})`,
-              backgroundSize: '40px',
+              backgroundImage: `url(${patternImg})`,
+              backgroundSize: '70px',
             }}
           />
-          <div className="relative z-10 flex flex-col items-center text-center sm:px-6 md:px-10 lg:px-12">
+          <div className="relative z-10 flex flex-col items-center text-center m-4 sm:px-6 md:px-10 lg:px-12">
             <h1 className="text-center text-2xl sm:text-3xl font-bold leading-tight mt-10 mb-10 ">
               Optimize and simplifies your sampling activity with QCIS
             </h1>
             <img
-              className="w-full max-w-xl h-auto rounded-xl border-white p-4 sm:p-0" src={potoImg} alt="contoh dashboard" />
+              className="w-full max-w-xl h-auto border-4 border-white/50 shadow-lg" src={statistikImg} alt="contoh dashboard" />
           </div>
         </div>
       </div>
 
       <div className="w-full sm:w-1/2 bg-white items-center p-8">
-          <div className="gap-4 align-center">
+          <div className="gap-4">
           
               <img src={logoImg} alt="PTSN Logo" className="w-40"/>
                 <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl mt-15">Get Started Now </h2>

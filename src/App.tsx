@@ -10,29 +10,31 @@ function App() {
     <div className=" min-h-screen flex flex-col sm:flex-row gap-8">
       
       <div className="w-full sm:w-1/2 bg-white flex flex-col p-8">
-        <div className="relative h-full bg-[#3182CE] rounded-lg overflow-hidden ">
-          <div className="absolute inset-0 bg-center bg-repeat opacity-10"
+        <div className="relative h-full bg-[#3182CE] rounded-lg overflow-hidden flex-1">
+          <div
+            className="absolute inset-0 bg-center bg-repeat opacity-10" //absolute inset-0: fully flush with all four sides of the parent (top, right, bottom, left = 0)
             style={{
               backgroundImage: `url(${patternImg})`,
               backgroundSize: '70px',
             }}
-          />
-          <div className="relative z-10 flex flex-col items-center text-center m-4 sm:px-6 md:px-10 lg:px-12">
+          /> 
+          
+          <div className="relative z-10 flex flex-col items-center text-center m-4 sm:px-6 md:px-10 lg:px-12"> 
             <h1 className="text-center text-2xl sm:text-3xl font-bold leading-tight mt-10 mb-10 ">
               Optimize and simplifies your sampling activity with QCIS
             </h1>
             <img
               className="w-full max-w-xl h-auto border-4 border-white/50 shadow-lg" src={statistikImg} alt="contoh dashboard" />
-          </div>
+          </div> 
         </div>
       </div>
 
-      <div className="w-full sm:w-1/2 bg-white items-center p-8">
-          <div className="gap-4">
+      <div className="w-full sm:w-1/2 bg-white flex flex-col items-center p-8">
+          <div className="flex flex-col gap-4 w-full">
           
               <img src={logoImg} alt="PTSN Logo" className="w-40"/>
-                <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl mt-15">Get Started Now </h2>
-                <p className="font-light text-md mt-1 mb-15">Enter your Credentials to access your account</p>
+                <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl mt-16">Get Started Now </h2>
+                <p className="font-light text-md mt-1 mb-16">Enter your Credentials to access your account</p>
             
             <form>
               <label htmlFor="email" className="block mt-4 mb-2 text-left text-xl text-gray-700 font-bold">
@@ -49,9 +51,9 @@ function App() {
                   Remember Me
                 </span>
               </label>
-              <button type="submit" className="w-full mt-6 py-3 rounded-md bg-gray-500 text-white font-semibold transition active:bg-blue-700">
+              <button type="submit" className="w-full mt-6 py-3 rounded-md bg-blue-500 text-white font-semibold transition active:bg-blue-600">
                 Sign In
-              </button>
+              </button> 
             </form>
           </div>
           <div className="flex flex-col gap-3">

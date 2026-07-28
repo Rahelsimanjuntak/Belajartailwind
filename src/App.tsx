@@ -20,14 +20,14 @@ function App() {
             }}
           />
 
-          <div className="relative z-10 flex h-full flex-col justify-center xl:-translate-y-14 items-center gap-4 sm:gap-6 lg:gap-8 xl:gap-10 2xl:gap-16 px-6 sm:px-8 md:px-10 lg:px-12">
+          <div className="relative z-10 flex h-full flex-col justify-center items-center gap-4 sm:gap-6 lg:gap-8 xl:gap-10 2xl:gap-16 px-6 sm:px-8 md:px-10 lg:px-12">
             <h1 className="text-center text-xl sm:text-2xl 2 xl:text-3xl xl:text-5xl text-white font-bold">
               Optimize and simplifies yours ampling activity with
               <span className="font-black"> QCIS</span>
             </h1>
             <div className="w-full px-4 lg:px-10 xl:px-20 mt-8 ">
                 <img
-                  className="w-full h-auto rounded-lg border-4 border-white/70 shadow-[0_9px_20px_rgba(0,0,0,0.10), 0_37px_37px_rgba(0,0,0,0.09),0_82px_49px_rgba(0,0,0,0.05),0_146px_59px_rgba(0,0,0,0.01)]"
+                  className="w-full h-auto rounded-lg border-10 border-white/50 shadow-[0_9px_20px_rgba(0,0,0,0.10), 0_37px_37px_rgba(0,0,0,0.09),0_82px_49px_rgba(0,0,0,0.05),0_146px_59px_rgba(0,0,0,0.01)]"
                   src={statistikImg}
                   alt="image dashboard"
                 />
@@ -37,8 +37,8 @@ function App() {
       </div>
 
     
-      <div className="flex-1 items-center bg-white flex flex-col sm:gap-8 lg:gap-20 px-5 py-6 sm:px-8 sm:py-8 md:px-8 lg:px-8 xl:px-10 rounded-t-[32px] sm:rounded-none -mt-15 sm:mt-0 relative z-10">
-        <div className="w-full mx-auto flex flex-col flex-1 justify-center py-4 sm:py-8 lg:py-10 md:max-w-[450px] 2xl:max-w-[581px] gap-10 md:gap-14 lg:gap-16 2xl:gap-20">
+      <div className="flex-1 items-center bg-white flex flex-col sm:gap-8 lg:gap-20 py-6 sm:py-8 rounded-t-[32px] sm:rounded-none -mt-15 sm:mt-0 relative z-10">
+        <div className="w-full md:max-w-[450px] 2xl:max-w-[581px] mx-auto flex flex-col flex-1 justify-center py-4 sm:py-8 lg:py-10 gap-10 md:gap-14 lg:gap-16 2xl:gap-20">
 
           {/* DIV 1: logo n header */}
           <div className="flex flex-col gap-4 sm:gap-10 xl:gap-20 ">

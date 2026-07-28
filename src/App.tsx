@@ -9,10 +9,9 @@ function App() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="flex flex-col sm:flex-row bg-white gap-0 sm:gap-2 lg:gap-6 xl:gap-8 min-h-screen">
-      
-      <div className="flex-1 bg-white flex flex-col p-0 sm:p-6 lg:p-8">
-        <div className="relative h-auto bg-[#3182CE] border-2 border-white/50 rounded-none overflow-hidden flex-1 sm:rounded-[32px]">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-white justify-center px-0 py-0 sm:p-6 lg:p-8 2xl:py-8 2xl:px-9 gap-0 lg:gap-4 xl:gap-6 2xl:gap-8">
+      <div className="flex-1 flex flex-col">
+        <div className="relative lg:h-[650px] xl:h-auto bg-[#3182CE] border-2 border-white/50 rounded-none overflow-hidden flex-1  lg:rounded-[32px]">
           <div
             className="absolute inset-0 bg-repeat opacity-10"
             style={{
@@ -20,38 +19,40 @@ function App() {
             }}
           />
 
-          <div className="relative z-10 flex h-full flex-col justify-center items-center gap-4 sm:gap-6 lg:gap-8 xl:gap-10 2xl:gap-16 px-6 sm:px-8 md:px-10 lg:px-12">
-            <h1 className="text-center text-xl sm:text-2xl 2 xl:text-3xl xl:text-5xl text-white font-bold">
+          <div className="relative z-10 flex h-full flex-col justify-center items-center gap-4 sm:gap-6 lg:gap-8 xl:gap-8 2xl:gap-16 px-6 sm:px-8 lg:px-10 xl:px-12 2xl:px-16">
+            <h1 className=" mt-8 sm:mt-0 text-center text-xl sm:text-2xl lg:text-4xl xl:text-4xl 2xl:text-5xl font-bold text-white">
               Optimize and simplifies yours ampling activity with
               <span className="font-black"> QCIS</span>
             </h1>
-            <div className="w-full px-4 lg:px-10 xl:px-20 mt-8 ">
-                <img
-                  className="w-full h-auto rounded-lg border-10 border-white/50 shadow-[0_9px_20px_rgba(0,0,0,0.10), 0_37px_37px_rgba(0,0,0,0.09),0_82px_49px_rgba(0,0,0,0.05),0_146px_59px_rgba(0,0,0,0.01)]"
-                  src={statistikImg}
-                  alt="image dashboard"
-                />
+            <div className="w-full">
+              <img
+                className="w-full h-auto rounded-lg border-10 border-white/50 shadow-[0_9px_20px_rgba(0,0,0,0.10), 0_37px_37px_rgba(0,0,0,0.09),0_82px_49px_rgba(0,0,0,0.05),0_146px_59px_rgba(0,0,0,0.01)]"
+                src={statistikImg}
+                alt="image dashboard"
+              />
             </div>
           </div>
         </div>
       </div>
 
-    
-      <div className="flex-1 items-center bg-white flex flex-col sm:gap-8 lg:gap-20 py-6 sm:py-8 rounded-t-[32px] sm:rounded-none -mt-15 sm:mt-0 relative z-10">
-        <div className="w-full md:max-w-[450px] 2xl:max-w-[581px] mx-auto flex flex-col flex-1 justify-center py-4 sm:py-8 lg:py-10 gap-10 md:gap-14 lg:gap-16 2xl:gap-20">
-
+      <div className=" flex-1 flex flex-col items-center justify-center bg-white rounded-t-[32px] lg:rounded-none -mt-20 sm:-mt-28 md:-mt-30 xl:mt-0 relative z-10">
+        <div className=" w-full xl:max-w-[500px] 2xl:max-w-[581px] mx-auto flex flex-col justify-center gap-2 lg:gap-10 xl:gap-12 2xl:gap-15 p-3 xl:p-0">
           {/* DIV 1: logo n header */}
-          <div className="flex flex-col gap-4 sm:gap-10 xl:gap-20 ">
-            <img src={logoImg} alt="PTSN Logo" className="w-32 sm:w-36 md:w-36 lg:w-40 2xl:w-[237px] h-auto" />
+          <div className="flex flex-col gap-4 sm:gap-10 xl:gap-12 2xl:gap-20">
+            <img
+              src={logoImg}
+              alt="PTSN Logo"
+              className="w-32 sm:w-36 lg:w-36 2xl:w-[237px] h-auto"
+            />
           </div>
 
           {/* DIV 2: form */}
-          <div className="flex flex-col gap-8 2xl:gap-16">
-            <div className="flex flex-col gap-2">
-              <h2 className="font-bold text-[#404040] text-2xl sm:text-2xl lg:text-5xl">
+          <div className="flex flex-col gap-4 2xl:gap-15">
+            <div className="flex flex-col gap-1">
+              <h2 className="font-bold text-[#404040] text-2xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
                 Get Started Now
               </h2>
-              <p className="text-sm sm:text-base md:text-base lg:text-2xl text-[#757575]">
+              <p className="text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-[#757575]">
                 Enter your Credentials to access your account
               </p>
             </div>
@@ -59,8 +60,8 @@ function App() {
             <div className="w-full h-px bg-gray-200" />
 
             <form>
-              <div className="flex flex-col gap-5 md:gap-8">
-                <div className="flex flex-col gap-2 md:gap-4">
+              <div className="flex flex-col gap-2 2xl:gap-8">
+                <div className="flex flex-col gap-2 2xl:gap-4">
                   <label
                     htmlFor="email"
                     className="block text-left text-sm sm:text-xl text-[#616161]"
@@ -71,7 +72,7 @@ function App() {
                     id="email"
                     type="email"
                     placeholder="Enter Your Email"
-                    className="w-full text-sm sm:text-base min-[1920px]:text-lg text-[#757575] px-4 py-2.5 border border-[#C2C2C2] rounded-md focus:outline-none focus:ring-2 focus:ring-[#3182CE]"
+                    className="w-full px-4 py-2 xl:py-2.5 border border-[#C2C2C2] rounded-md focus:outline-none focus:ring-2 focus:ring-[#3182CE]"
                     required
                   />
                 </div>
@@ -109,7 +110,8 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="mt-4 min-[1920px]:">
+
+              <div className="mt-4 2xl:mt-5">
                 <label className="flex items-center">
                   <input type="checkbox" className="w-4 h-4 accent-blue-500" />
                   <span className="ml-2 text-sm sm:text-base text-[#404040]">
@@ -117,31 +119,29 @@ function App() {
                   </span>
                 </label>
               </div>
-              <button
-                type="submit"
-                className="w-full py-2.5 sm:py-3 min-[1920px]:py-4 mt-6 sm:mt-8 min-[1920px]:mt-15 text-base sm:text-lg md:text-lg lg:text-3xl rounded-md bg-blue-500 text-white transition active:bg-blue-600 hover:bg-blue-600"
-              >
-                Sign In
-              </button>
-            <div className="flex flex-row items-center mt-8">
-              <Info className="w-4 h-4 text-gray-400 shrink-0" />
-              <p className="text-xs sm:text-sm min-[1920px]:text-base text-[#9E9E9E]">
-                Account will be locked after 6 unsuccessful login attempts.
-              </p>
-            </div>
             </form>
+              <div className="flex flex-col items-center justify-center gap-2 sm:gap-4 lg:gap-6 2xl:gap-8">
+                <button
+                  type="submit"
+                  className="w-full py-3 text-lg xl:text-xl 2xl:text-2xl rounded-md bg-blue-500 text-white hover:bg-blue-600">
+                  Sign In
+                </button>
+
+                <div className="self-start flex items-center justify-center gap-2">
+                  <Info className="w-4 h-4 text-gray-400 shrink-0" />
+                  <p className="text-xs sm:text-sm text-[#9E9E9E]">
+                    Account will be locked after 6 unsuccessful login attempts.
+                  </p>
+                </div>
+              </div>
           </div>
 
-          {/* DIV 3: footer notes */}
-          <div className="w-full flex flex-col justify-center gap-20">
-            <div className="flex flex-row items-start gap-2">
-              <Copyright className="w-4 h-4 text-gray-400 shrink-0" />
-              <p className="text-xs sm:text-sm min-[1920px]:text-base text-[#9E9E9E]">
-                2024 MIS All rights reserved
-              </p>
-            </div>
+          <div className="self-start flex items-center justify-center gap-2">
+            <Copyright className="w-4 h-4 text-gray-400" />
+            <p className="text-xs sm:text-sm text-[#9E9E9E]">
+              2024 MIS All rights reserved
+            </p>
           </div>
-
         </div>
       </div>
     </div>

@@ -36,7 +36,7 @@ function App() {
       </div>
 
       <div className=" flex-1 flex flex-col items-center justify-center bg-white rounded-t-[32px] lg:rounded-none -mt-20 sm:-mt-28 md:-mt-30 xl:mt-0 relative z-10">
-        <div className=" w-full xl:max-w-[500px] 2xl:max-w-[581px] mx-auto flex flex-col justify-center gap-2 lg:gap-10 xl:gap-12 2xl:gap-15 p-3 xl:p-0">
+        <div className=" w-full max-w-[420px] xl:max-w-[500px] 2xl:max-w-[581px] mx-auto flex flex-col justify-center gap-2 lg:gap-10 xl:gap-12 2xl:gap-15">
           {/* DIV 1: logo n header */}
           <div className="flex flex-col gap-4 sm:gap-10 xl:gap-12 2xl:gap-20">
             <img

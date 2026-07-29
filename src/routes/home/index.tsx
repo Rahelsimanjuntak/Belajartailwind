@@ -1,4 +1,5 @@
 import ColorButton from "../../components/button";
+import ColorBox from "../../components/colorBox";
 import CommentList from "../comment";
 import UserList from "../user";
 
@@ -11,14 +12,12 @@ function Home() {
         <div className="bg-white rounded-xl shadow-lg p-6">
 
           {/* Button Group */}
-          <div className="flex gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-6">
             <ColorButton color="blue">
               User
             </ColorButton>
 
-            <ColorButton color="blue">
-              All User
-            </ColorButton>
+            <ColorBox color="blue" />
           </div>
 
           <UserList />
@@ -28,14 +27,12 @@ function Home() {
         <div className="bg-white rounded-xl shadow-lg p-6">
 
           {/* Button Group */}
-          <div className="flex gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-6">
             <ColorButton color="red">
               Comment
             </ColorButton>
 
-            <ColorButton color="red">
-              All Comment
-            </ColorButton>
+            <ColorBox color="red" />
           </div>
 
           <CommentList />

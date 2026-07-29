@@ -6,21 +6,12 @@ interface Props {
 }
 
 export default function ColorButton({ color, children }: Props) {
-  const { activeColor, setActiveColor } = useColorStore();
-
-  const active = activeColor === color;
+  const { setActiveColor } = useColorStore();
 
   return (
     <button
       onClick={() => setActiveColor(color)}
-      className={`px-4 py-2 rounded-md font-semibold transition
-        ${
-          active
-            ? color === "blue"
-              ? "bg-blue-500 text-white"
-              : "bg-red-500 text-white"
-            : "bg-gray-300 text-gray-700"
-        }`}
+      className="px-4 py-2 rounded-md font-semibold transition bg-gray-300 text-gray-700 hover:bg-gray-400"
     >
       {children}
     </button>

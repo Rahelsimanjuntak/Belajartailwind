@@ -1,7 +1,7 @@
 import ColorButton from "../../components/button";
 import ColorBox from "../../components/colorBox";
-import CommentList from "../comment";
-import UserList from "../user";
+import TableUser from "../../components/home/tableUser";
+import TableComment from "../../components/home/tableComment";
 
 function Home() {
   return (
@@ -20,7 +20,7 @@ function Home() {
             <ColorBox color="blue" />
           </div>
 
-          <UserList />
+          <TableUser />
         </div>
 
         {/* Container Comment */}
@@ -35,7 +35,7 @@ function Home() {
             <ColorBox color="red" />
           </div>
 
-          <CommentList />
+          <TableComment />
         </div>
 
       </div>

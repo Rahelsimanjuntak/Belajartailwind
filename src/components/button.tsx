@@ -5,7 +5,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-export default function ColorButton({ color, children }: Props) {
+function ColorButton({ color, children }: Props) {
   const { setActiveColor } = useColorStore();
 
   return (
@@ -17,3 +17,4 @@ export default function ColorButton({ color, children }: Props) {
     </button>
   );
 }
+export default ColorButton;

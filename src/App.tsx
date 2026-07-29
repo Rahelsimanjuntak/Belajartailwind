@@ -1,8 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./routes/login"
 import Home from "./routes/home"
-import Comments from "./routes/comment"
-import User from "./routes/user"
+
 
 
 function App() {
@@ -11,8 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Login/>} />
         <Route path="home" element={<Home />} />
-        <Route path="comment" element={<Comments />} />
-        <Route path="user" element={<User />} />
+        {/* <Route path="comment" element={<Comments />} />
+        <Route path="user" element={<User />} /> */}
       </Routes>
     </BrowserRouter>
   );

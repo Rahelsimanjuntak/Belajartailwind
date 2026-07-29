@@ -3,10 +3,12 @@ import statistikImg from "../../assets/statistik.png";
 import logoImg from "../../assets/logo.png";
 import { Info, Copyright, EyeOff, Eye } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="relative lg:flex flex-col lg:flex-row min-h-screen bg-white justify-center lg:p-8 2xl:px-9 md:gap-4 lg:gap-8">
@@ -121,6 +123,7 @@ function Login() {
             <div className="flex flex-col items-center justify-center gap-2 sm:gap-4 lg:gap-6 2xl:gap-8">
               <button
                 type="submit"
+                onClick={() => navigate("/home")}
                 className="w-full py-3 text-lg xl:text-xl 2xl:text-2xl rounded-md bg-blue-500 text-white hover:bg-blue-600"
               >
                 Sign In

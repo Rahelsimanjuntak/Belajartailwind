@@ -4,12 +4,12 @@ function TableComment() {
   const { data: comments, isLoading, isError, error } = useComments();
 
   if (isLoading) {
-    return <p className="text-center py-6">Loading comment...</p>;
+    return <p className="py-6 text-center">Loading comment...</p>;
   }
 
   if (isError) {
     return (
-      <p className="text-center py-6 text-red-500">
+      <p className="py-6 text-center text-red-500">
         {(error as Error).message}
       </p>
     );
@@ -17,13 +17,24 @@ function TableComment() {
 
   return (
     <div className="overflow-x-auto rounded-xl border border-gray-200">
-      <table className="min-w-full text-sm table-fixed">
+      <table className="min-w-[900px] w-full table-fixed text-sm">
         <thead className="bg-red-500 text-white">
           <tr>
-            <th className="px-4 py-3 text-left w-16">ID</th>
-            <th className="px-4 py-3 text-left w-1/6">Name</th>
-            <th className="px-4 py-3 text-left w-1/6">Email</th>
-            <th className="px-4 py-3 text-left">Body</th>
+            <th className="w-16 px-2 py-3 text-left">
+              ID
+            </th>
+
+            <th className="w-60 px-2 py-3 text-left">
+              Name
+            </th>
+
+            <th className="w-60 px-2 py-3 text-left">
+              Email
+            </th>
+
+            <th className="px-2 py-3 text-left">
+              Body
+            </th>
           </tr>
         </thead>
 
@@ -33,10 +44,21 @@ function TableComment() {
               key={comment.id}
               className="border-b hover:bg-gray-50 transition"
             >
-              <td className="px-4 py-3">{comment.id}</td>
-              <td className="px-4 py-3">{comment.name}</td>
-              <td className="px-4 py-3 truncate">{comment.email}</td>
-              <td className="px-4 py-3">{comment.body}</td>
+              <td className="px-2 py-3">
+                {comment.id}
+              </td>
+
+              <td className="px-2 py-3 break-words">
+                {comment.name}
+              </td>
+
+              <td className="px-2 py-3 whitespace-nowrap">
+                {comment.email}
+              </td>
+
+              <td className="px-2 py-3 break-words">
+                {comment.body}
+              </td>
             </tr>
           ))}
         </tbody>

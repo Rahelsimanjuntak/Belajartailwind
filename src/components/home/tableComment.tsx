@@ -56,7 +56,7 @@ function TableComment() {
                 {comment.email}
               </td>
 
-              <td className="px-2 py-3 break-words">
+              <td className="px-2 py-3 break-word">
                 {comment.body}
               </td>
             </tr>

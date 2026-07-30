@@ -24,10 +24,12 @@ const fetchComments = async (): Promise<Comment[]> => {
   if (!res.ok) throw new Error("Gagal fetch comments");
   const apiData: Comment[] = await res.json();
 
-  const apiComments = apiData.map((c) => ({ ...c, source: "json_api" as const }));
+  const apiComments = apiData.map((c) => ({
+    ...c,
+    source: "json_api" as const,
+  }));
   const localComments = getLocalComments(); // get from localStorage
 
-  
   return [...apiComments, ...localComments];
 };
 
@@ -41,7 +43,7 @@ export function useComments() {
 }
 
 export const postComment = async (
-  payload: CreateCommentPayload
+  payload: CreateCommentPayload,
 ): Promise<Comment> => {
   const res = await fetch(`${BASE}/comments`, {
     method: "POST",
@@ -53,10 +55,10 @@ export const postComment = async (
   const data = await res.json();
   const newComment: Comment = {
     ...data,
-    localId: crypto.randomUUID(), // unique key 
+    localId: crypto.randomUUID(), // unique key
     source: "setter" as const,
   };
 
   saveLocalComment(newComment); // ← simpan ke localStorage
   return newComment;
-};  
+};

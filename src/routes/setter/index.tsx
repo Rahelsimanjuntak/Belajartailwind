@@ -1,23 +1,36 @@
 import { useState } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query"; //usemutation handles POST request to the API usequeryclient gives access to the cache so we can update it manually
+import { useNavigate } from "react-router-dom";                        
 import { postComment } from "../../apis/commentList";
-import type { CreateCommentPayload } from "../../types/typeComments";
+import { commentsQueryOptions } from "../../apis/commentList";
+import type { Comment, CreateCommentPayload } from "../../types/typeComments"; 
 import clsx from "clsx";
 
 function SetterPage() {
   const [form, setForm] = useState<CreateCommentPayload>({
     name: "",
-    email: "",
+    email: "",      //Holds the current value of all 3 form fields. Starts empty.
     body: "",
   });
 
-  const queryClient = useQueryClient();
 
+  const queryClient = useQueryClient(); //Gets the query client used to manually update the comments cache.
+  const navigate = useNavigate(); 
+   useQuery(commentsQueryOptions);                                        
+
+    // mutate — function we call to trigger the POST request
+    // isPending — true while the request is in progress
+    // isSuccess — true when request succeeds
+    // isError — true when request fails
+    // error — contains the error message if it fails
   const { mutate, isPending, isSuccess, isError, error } = useMutation({
-    mutationFn: postComment,       // ← fungsi yang hit API
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["comments"] }); // refresh list
-      setForm({ name: "", email: "", body: "" });                 // reset form
+    mutationFn: postComment,
+    onSuccess: (newComment: Comment) => {
+      queryClient.setQueryData(["comments"], (oldData: Comment[] | undefined) => {
+        return [newComment, ...(oldData ?? [])];                        // ← oldData sudah pasti ada
+      });
+      setForm({ name: "", email: "", body: "" });
+      navigate("/home");
     },
     onError: (err) => {
       console.error("Gagal:", err.message);
@@ -32,7 +45,7 @@ function SetterPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    mutate(form); // ← trigger mutation
+    mutate(form);
   };
 
   return (
@@ -40,8 +53,6 @@ function SetterPage() {
       <h1 className="text-2xl font-bold text-gray-800 mb-6">Buat Comment</h1>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-
-        {/* Name */}
         <div className="flex flex-col gap-1">
           <label className="text-sm text-gray-600">Name</label>
           <input
@@ -54,7 +65,6 @@ function SetterPage() {
           />
         </div>
 
-        {/* Email */}
         <div className="flex flex-col gap-1">
           <label className="text-sm text-gray-600">Email</label>
           <input
@@ -68,7 +78,6 @@ function SetterPage() {
           />
         </div>
 
-        {/* Body */}
         <div className="flex flex-col gap-1">
           <label className="text-sm text-gray-600">Body</label>
           <textarea
@@ -82,7 +91,6 @@ function SetterPage() {
           />
         </div>
 
-        {/* Feedback */}
         {isSuccess && (
           <p className="text-sm text-green-600">Comment berhasil dibuat!</p>
         )}
@@ -90,7 +98,6 @@ function SetterPage() {
           <p className="text-sm text-red-500">{error.message}</p>
         )}
 
-        {/* Button — loading selama isPending */}
         <button
           type="submit"
           disabled={isPending}
@@ -103,7 +110,6 @@ function SetterPage() {
         >
           {isPending ? "Submitting..." : "Submit"}
         </button>
-
       </form>
     </div>
   );

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query"; //usemutation handles POST request to the API usequeryclient gives access to the cache so we can update it manually
+import { useMutation, useQueryClient } from "@tanstack/react-query"; //usemutation handles POST request to the API usequeryclient gives access to the cache so we can update it manually
 import { useNavigate } from "react-router-dom";                        
 import { postComment } from "../../apis/commentList";
-import { commentsQueryOptions } from "../../apis/commentList";
 import type { Comment, CreateCommentPayload } from "../../types/typeComments"; 
 import clsx from "clsx";
+
 
 function SetterPage() {
   const [form, setForm] = useState<CreateCommentPayload>({
@@ -15,8 +15,7 @@ function SetterPage() {
 
 
   const queryClient = useQueryClient(); //Gets the query client used to manually update the comments cache.
-  const navigate = useNavigate(); 
-   useQuery(commentsQueryOptions);                                        
+  const navigate = useNavigate();                                       
 
     // mutate — function we call to trigger the POST request
     // isPending — true while the request is in progress

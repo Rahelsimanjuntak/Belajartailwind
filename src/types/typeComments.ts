@@ -5,5 +5,12 @@ export interface Comment {
   email: string;
   body: string;
 }
+// tambah ini
+export type CreateCommentPayload = {
+  name: string;
+  email: string;
+  body: string;
+};
+
 
 export type CommentList = Comment[];

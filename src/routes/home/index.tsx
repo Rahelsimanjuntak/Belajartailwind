@@ -4,8 +4,8 @@ import TableUser from "../../components/home/tableUser";
 import TableComment from "../../components/home/tableComment";
 import FilterName from "../../components/filter";
 
-
 function Home() {
+  
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -21,7 +21,7 @@ function Home() {
             <h2 className="text-center text-2xl font-bold text-gray-800 mb-6">
               User
             </h2>
-            <FilterName type="user"/>
+            <FilterName type="user" />
           </div>
 
           <TableUser />
@@ -30,7 +30,7 @@ function Home() {
         {/* Container Comment */}
         <div className="bg-white rounded-xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-8">
-          {/* Button Group */}
+            {/* Button Group */}
             <div className="flex items-center gap-3 mb-4">
               <ColorButton color="red">red</ColorButton>
 

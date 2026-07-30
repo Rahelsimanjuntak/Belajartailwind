@@ -5,12 +5,8 @@ interface Props {
 }
 
 function FilterName({ type }: Props) {
-  const {
-    userFilter,
-    commentFilter,
-    setUserFilter,
-    setCommentFilter,
-  } = useFilterStore();
+  const { userFilter, commentFilter, setUserFilter, setCommentFilter } =
+    useFilterStore();
 
   const value = type === "user" ? userFilter : commentFilter;
 

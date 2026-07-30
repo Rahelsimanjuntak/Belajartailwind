@@ -6,8 +6,8 @@ function TableUser() {
   const { userFilter } = useFilterStore();
 
   const filteredUsers = users?.filter((user) =>
-  user.name.toLowerCase().includes(userFilter.toLowerCase())
-);
+    user.name.toLowerCase().includes(userFilter.toLowerCase()),
+  );
 
   if (isLoading) {
     return <p className="text-center py-6">Loading users...</p>;
@@ -37,10 +37,7 @@ function TableUser() {
 
         <tbody>
           {filteredUsers?.map((user) => (
-            <tr
-              key={user.id}
-              className="border-b hover:bg-gray-50 transition"
-            >
+            <tr key={user.id} className="border-b hover:bg-gray-50 transition">
               <td className="px-4 py-3">{user.id}</td>
               <td className="px-4 py-3">{user.name}</td>
               <td className="px-4 py-3 truncate">{user.username}</td>

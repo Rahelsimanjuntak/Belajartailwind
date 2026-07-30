@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useColorStore } from "../routes/stores/colorStore";
 
 interface Props {
@@ -7,21 +8,23 @@ interface Props {
 
 function ColorButton({ color, children }: Props) {
   const { activeColor, setActiveColor } = useColorStore();
-
-  // Mengecek apakah button ini sedang aktif
+  // Checking if this button is currently active
   const active = activeColor === color;
 
   return (
     <button
       onClick={() => setActiveColor(color)}
-      className={`px-4 py-2 rounded-md font-semibold transition
-        ${
-          active
-            ? color === "blue"
-              ? "bg-blue-500 text-white hover:bg-blue-600"
-              : "bg-red-500 text-white hover:bg-red-600"
-            : "bg-gray-300 text-gray-700 hover:bg-gray-400"
-        }`}
+      className={clsx(
+        "px-4 py-2 rounded-md font-semibold transition duration-300",
+        {
+          "bg-blue-500 text-white hover:bg-blue-600":
+            active && color === "blue",
+          "bg-red-500 text-white hover:bg-red-600":
+            active && color === "red",
+          "bg-gray-300 text-gray-700 hover:bg-gray-400":
+            !active,
+        }
+      )}
     >
       {children}
     </button>

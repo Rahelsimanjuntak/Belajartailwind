@@ -1,7 +1,13 @@
 import { useUsers } from "../../apis/userList";
+import { useFilterStore } from "../../../src//routes/stores/filterStore";
 
 function TableUser() {
   const { data: users, isLoading, isError, error } = useUsers();
+  const { userFilter } = useFilterStore();
+
+  const filteredUsers = users?.filter((user) =>
+  user.name.toLowerCase().includes(userFilter.toLowerCase())
+);
 
   if (isLoading) {
     return <p className="text-center py-6">Loading users...</p>;
@@ -30,7 +36,7 @@ function TableUser() {
         </thead>
 
         <tbody>
-          {users?.map((user) => (
+          {filteredUsers?.map((user) => (
             <tr
               key={user.id}
               className="border-b hover:bg-gray-50 transition"

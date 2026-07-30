@@ -1,7 +1,13 @@
 import { useComments } from "../../apis/commentList";
+import { useFilterStore } from "../../../src/routes/stores/filterStore";
 
 function TableComment() {
   const { data: comments, isLoading, isError, error } = useComments();
+  const { commentFilter } = useFilterStore();
+ 
+  const filteredComments = comments?.filter((comment) => 
+  comment.name.toLowerCase().includes(commentFilter.toLowerCase())
+  );
 
   if (isLoading) {
     return <p className="py-6 text-center">Loading comment...</p>;
@@ -39,7 +45,7 @@ function TableComment() {
         </thead>
 
         <tbody>
-          {comments?.map((comment) => (
+          {filteredComments?.map((comment) => (
             <tr
               key={comment.id}
               className="border-b hover:bg-gray-50 transition"

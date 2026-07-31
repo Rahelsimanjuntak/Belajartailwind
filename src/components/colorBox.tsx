@@ -1,9 +1,11 @@
 import clsx from "clsx";
-import { useColorStore } from "../routes/stores/colorStore";
 
-function ColorBox() {
-  const { activeColor } = useColorStore();
 
+interface Props {
+  activeColor: "blue" | "red" | null;
+}
+
+function ColorBox({ activeColor }: Props) {
   const active = activeColor !== null;
 
   return (

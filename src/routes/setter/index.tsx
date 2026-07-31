@@ -25,10 +25,13 @@ function SetterPage() {
     // error — contains the error message if it fails
   const {mutate, isPending } = useMutation({
     mutationFn: postComment,
-    onSuccess:() => {
-      queryClient.invalidateQueries({ queryKey: ["comments"] });
-      setForm({ name: "", email: "", body:""});
-      navigate("/home");
+    onSuccess: () => {
+      queryClient.invalidateQueries({ 
+        queryKey: ["comments"],
+        exact: true  // only invalidate the ones whose queryKey is exactly ['comments']
+      });
+      setForm({ name: "", email: "", body: "" });
+      navigate("/");
     },
     onError:(error) => {
       console.error(error);
@@ -57,7 +60,7 @@ function SetterPage() {
           <input
             name="name"
             value={form.name}
-            onChange={handleChange}
+             onChange={handleChange}
             placeholder="Nama kamu"
             required
             className="border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"

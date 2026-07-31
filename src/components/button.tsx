@@ -28,6 +28,7 @@ function ColorButton({ color, children }: Props) {
     >
       {children}
     </button>
+    
   );
 }
 

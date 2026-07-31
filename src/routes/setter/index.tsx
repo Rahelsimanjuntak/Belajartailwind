@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query"; //usemutation handles POST request to the API usequeryclient gives access to the cache so we can update it manually
 import { useNavigate } from "react-router-dom";                        
 import { postComment } from "../../apis/commentList";
-import type { Comment, CreateCommentPayload } from "../../types/typeComments"; 
+import type { CreateCommentPayload } from "../../types/typeComments"; 
 import clsx from "clsx";
+
 
 
 function SetterPage() {
@@ -22,17 +23,16 @@ function SetterPage() {
     // isSuccess — true when request succeeds
     // isError — true when request fails
     // error — contains the error message if it fails
-  const { mutate, isPending, isSuccess, isError, error } = useMutation({
+  const {mutate, isPending } = useMutation({
     mutationFn: postComment,
-    onSuccess: (newComment: Comment) => {
-      queryClient.setQueryData(["comments"], (oldData: Comment[] | undefined) => {
-        return [newComment, ...(oldData ?? [])];                        // ← oldData sudah pasti ada
-      });
-      setForm({ name: "", email: "", body: "" });
+    onSuccess:() => {
+      queryClient.invalidateQueries({ queryKey: ["comments"] });
+      setForm({ name: "", email: "", body:""});
       navigate("/home");
     },
-    onError: (err) => {
-      console.error("Gagal:", err.message);
+    onError:(error) => {
+      console.error(error);
+      window.alert("comment failed");
     },
   });
 
@@ -69,7 +69,7 @@ function SetterPage() {
           <input
             name="email"
             type="email"
-            value={form.email}
+            value={form?.email}
             onChange={handleChange}
             placeholder="email@contoh.com"
             required
@@ -90,12 +90,7 @@ function SetterPage() {
           />
         </div>
 
-        {isSuccess && (
-          <p className="text-sm text-green-600">Comment berhasil dibuat!</p>
-        )}
-        {isError && (
-          <p className="text-sm text-red-500">{error.message}</p>
-        )}
+      
 
         <button
           type="submit"

@@ -1,10 +1,14 @@
-import { useComments } from "../../apis/commentList";
 import { useFilterStore } from "../../../src/routes/stores/filterStore";
-import clsx from "clsx";
-
+import { useQuery } from "@tanstack/react-query";
+import { commentsQueryOptions } from "../../apis/commentList";
 
 function TableComment() {
-  const { data: comments, isLoading, isError, error } = useComments();
+  const {
+    data: comments,
+    isLoading,
+    isError,
+    error,
+  } = useQuery(commentsQueryOptions);
   const { commentFilter } = useFilterStore();
 
   const filteredComments = comments?.filter((comment) =>
@@ -30,7 +34,7 @@ function TableComment() {
           <tr>
             <th className="w-16 px-2 py-3 text-left">ID</th>
             <th className="w-60 px-2 py-3 text-left">Name</th>
-            <th className="w-60 px-2 py-3 text-left">Email</th>
+            <th className="w-52 px-2 py-3 text-left">Email</th>
             <th className="px-2 py-3 text-left">Body</th>
           </tr>
         </thead>
@@ -45,16 +49,6 @@ function TableComment() {
               <td className="px-2 py-3 break-word">{comment.name}</td>
               <td className="px-2 py-3 whitespace-nowrap">{comment.email}</td>
               <td className="px-2 py-3 break-word">{comment.body}</td>
-              <td className="px-2 py-3">
-                <span className={clsx(
-                  "text-xs px-2 py-0.5 rounded-full font-medium",
-                  comment.source === "setter"
-                    ? "bg-blue-100 text-blue-700"
-                    : "bg-gray-100 text-gray-500"
-                )}>
-                  {comment.source === "setter" ? "Setter" : "API"}
-                </span>
-              </td>
             </tr>
           ))}
         </tbody>
